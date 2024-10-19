@@ -6,6 +6,7 @@ const removeRandomProduct = async () => {
   const productData = JSON.parse(products);
 
   if (productData.length === 0) {
+    console.log('Продуктів немає');
     return;
   }
 
