@@ -4,10 +4,11 @@ import { createFakeProduct } from '../utils/createFakeProducts.js';
 
 const addOneProduct = async () => {
   const products = await fs.readFile(PATH_DB, 'utf-8');
-  const productData = JSON.parse(products);
+  // console.log("This is ...", typeof products);
+  const productData = products ? JSON.parse(products) : [];
+  // console.log("This is ...", productData);
   productData.push(createFakeProduct());
 
-  //   console.log(productData);
   fs.writeFile(PATH_DB, JSON.stringify(productData, null, 2), 'utf-8');
 };
 addOneProduct();
